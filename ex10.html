@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<h1>Object</h1>
+	<h2>Create</h2>
+	<script>
+		var coworkers = {
+			"programmer":"egoing",
+			"designer":"leezche"
+		};//object literal :객체 만들때 사용하는 기호,정보에 대한 이름이 필요함
+		document.write("programmer : "+coworkers.programmer+'<br>');
+		document.write("designer : "+coworkers.designer+'<br>');
+		coworkers.bookkeeper = 'duru';
+		document.write("bookkeeper : "+coworkers.bookkeeper+'<br>')
+		coworkers["data scientist"] = "taeho";//key값을 넣어도 결과가 정상적으로 나온다
+		document.write("data scientist : "+coworkers["data scientist"]+"<br>");
+	</script>
+	<h2>Iterate</h2>
+	<script>
+		for(var key in coworkers){
+			document.write(key + ' : '+coworkers[key]+'<br>'); 
+		}
+	</script>
+	<h2>Property & Method</h2>
+	<script>
+		//객체에 소속된 변수-property(programmer,designer)/ 객체에 소속된 함수-method
+		//함수가 소속되어있는 객체를 가리키는 약속된 언어:this
+		//위 coworkers의 이름이 다른 것으로 바뀌어도 this는 자기 자신을 가리키기 때문에 영향을 받지 않는다.
+		coworkers.showAll = function(){
+		for(var key in this){
+			document.write(key + ' : '+this[key]+'<br>'); 
+		}			
+		}
+		coworkers.showAll();
+	</script>
+</body>
+</html>
